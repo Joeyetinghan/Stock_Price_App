@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "102470127192",
+    "firebase_url": "https://stock-price-app-f23e2.firebaseio.com",
+    "project_id": "stock-price-app-f23e2",
+    "storage_bucket": "stock-price-app-f23e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102470127192:android:2b9d5168c8dcb2cfe6442d",
+        "android_client_info": {
+          "package_name": "com.example.stockpriceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102470127192-f2uu6dlvr31605fni1bkqmiub2iaes3c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABVdLNE-XPN0w47Ws4-JHz9quP7HrR5M0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102470127192-f2uu6dlvr31605fni1bkqmiub2iaes3c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
