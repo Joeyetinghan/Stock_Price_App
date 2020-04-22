@@ -5,6 +5,9 @@
     <string name="start">Start</string>
     <string name="getReturn">Total Return</string>
     <string name="myPortfolio">My Portfolio</string>
+    <string name="addStock">Add Stock To My Portfolio</string>
+    <string name="connection_failed">Enter Symbol!.</string>
+
 
 
 </resources>
