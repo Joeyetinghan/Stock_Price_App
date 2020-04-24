@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Searcher"></activity>
+        <activity android:name=".Searcher"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".LaunchActivity">
             <intent-filter>

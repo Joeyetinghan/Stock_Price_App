@@ -15,12 +15,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+
+import org.json.JSONException;
 import org.json.JSONObject;
+
 
 public class Searcher extends AppCompatActivity {
     Button addStock;
     private RequestQueue mQueue;
     EditText input;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +41,6 @@ public class Searcher extends AppCompatActivity {
             }
             else {
                 jsonParse(inputSymbol);
-                //Back to Main Activity
-                finish();
             }
 
         });
@@ -46,19 +48,36 @@ public class Searcher extends AppCompatActivity {
     }
     // reference this youtube video: https://www.youtube.com/watch?v=y2xtLqP8dSQ
     private void jsonParse(String symbol) {
-        String url = "https://cloud.iexapis.com/stable/stock/";
+        Intent returnIntent = new Intent();
+        String lowerCaseSymbol = symbol.toLowerCase();
+        String url = "https://cloud.iexapis.com/stable/stock/" + lowerCaseSymbol + "/quote/?token=pk_08fb66c38ef941ac98cbeb5cf45cf0a2";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        // add the symbol to the url and search if the symbol is valid
+                        // if valid, add it and return to main activity
+                        try {
+                            returnIntent.putExtra("symbol", symbol);
+                            returnIntent.putExtra("price", response.getDouble("latestPrice"));
+                            returnIntent.putExtra("change", response.getDouble("change"));
+                            returnIntent.putExtra("percent", response.getDouble("changePercent") * 100);
+                            setResult(RESULT_OK, returnIntent);
+                            finish();
 
+                        } catch (JSONException e) {
+                            setResult(RESULT_OK, returnIntent);
+                            e.printStackTrace();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                setResult(RESULT_OK, returnIntent);
                 error.printStackTrace();
             }
         });
+        mQueue.add(request);
     }
 
 }
