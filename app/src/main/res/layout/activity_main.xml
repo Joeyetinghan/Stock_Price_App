@@ -83,7 +83,7 @@
 
                         android:layout_marginStart="24dp"
                         android:layout_marginLeft="24dp"
-                        android:text="currency"
+                        android:text="Total Inv."
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -144,7 +144,7 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/rv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

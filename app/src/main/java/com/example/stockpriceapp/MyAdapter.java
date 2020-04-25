@@ -1,6 +1,7 @@
 package com.example.stockpriceapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,13 +36,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.currentPrice.setText(mDataset.get(position).getFormattedPrice());
         holder.change.setText(String.valueOf(mDataset.get(position).getChangeInPrice()));
         holder.changePercent.setText(String.valueOf(mDataset.get(position).getPercentChange()));
+        holder.total.setText(mDataset.get(position).getTotal());
 
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String symbol = holder.symbol.getText().toString();
-                Toast.makeText(v.getContext(), symbol, Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), mDataset.get(position).getTotal(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -77,7 +79,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView currentPrice;
         TextView change;
         TextView changePercent;
-        TextView currency;
+        TextView total;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -86,7 +88,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.currentPrice = (TextView) itemView.findViewById(R.id.currentPrice);
             this.change = (TextView) itemView.findViewById(R.id.change);
             this.changePercent = (TextView) itemView.findViewById(R.id.changePercent);
-            this.currency = (TextView) itemView.findViewById(R.id.currency);
+            this.total = (TextView) itemView.findViewById(R.id.total);
 
         }
     }

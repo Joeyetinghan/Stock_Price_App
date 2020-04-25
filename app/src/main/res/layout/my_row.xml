@@ -60,11 +60,11 @@
         </TextView>
 
         <TextView
-            android:id="@+id/currency"
+            android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="USD"
+            android:text="$123"
             android:textColor="@color/black"
             android:textSize="15sp">
 
