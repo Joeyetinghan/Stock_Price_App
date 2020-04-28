@@ -9,8 +9,8 @@ public class Quote {
     private double percentChange;
     private double total;
     private int volume;
+    private double purchasePrice;
 
-    private NumberFormat dollarFormat = NumberFormat.getCurrencyInstance();
     public Quote(String setSymbol, double setPrice, double setChangeInPrice, double setPercentChange, double setPurchasePrice, int setVolume) {
         this.symbol = setSymbol;
         price = setPrice;
@@ -18,6 +18,7 @@ public class Quote {
         percentChange = setPercentChange;
         volume = setVolume;
         total = setPurchasePrice * setVolume;
+        purchasePrice = setPurchasePrice;
     }
     public String getSymbol() {
     return symbol;
@@ -28,9 +29,7 @@ public class Quote {
     public double getPrice() {
         return price;
     }
-    public String getFormattedPrice() {
-        return dollarFormat.format(getPrice());
-    }
+
     public void setPrice(double price) {
         this.price = price;
     }
@@ -46,13 +45,13 @@ public class Quote {
     public void setPercentChange(double setPercentChange) {
         percentChange = setPercentChange;
     }
-    public String getTotal() {
-        return dollarFormat.format(getTotalInvestment());
-    }
     public double getTotalInvestment() {
         return total;
     }
     public int getVolume() {
         return volume;
+    }
+    public double getPurchasePrice() {
+        return purchasePrice;
     }
 }

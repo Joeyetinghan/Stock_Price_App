@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -21,6 +20,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     MyAdapter(List<Quote> myDataset) {
         mDataset = myDataset;
     }
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
+    boolean isChangePositive;
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,17 +34,42 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.symbol.setText(mDataset.get(position).getSymbol());
-        holder.currentPrice.setText(mDataset.get(position).getFormattedPrice());
+        holder.currentPrice.setText(String.valueOf(mDataset.get(position).getPrice()));
         holder.change.setText(String.valueOf(mDataset.get(position).getChangeInPrice()));
         holder.changePercent.setText(String.valueOf(mDataset.get(position).getPercentChange()));
-        holder.total.setText(mDataset.get(position).getTotal());
+        String totalInvestment = Double.valueOf(df2.format(mDataset.get(position).getTotalInvestment())).toString();
+        holder.total.setText(totalInvestment);
 
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String symbol = holder.symbol.getText().toString();
-                Toast.makeText(v.getContext(), mDataset.get(position).getTotal(), Toast.LENGTH_SHORT).show();
+                Context context = v.getContext();
+                Intent intent = new Intent(context, IndividualStock.class);
+
+                //format all the values
+                if (mDataset.get(position).getChangeInPrice() > 0) {
+                    isChangePositive = true;
+                }  else {
+                    isChangePositive = false;
+                }
+                String change = Double.valueOf(Math.abs(mDataset.get(position).getChangeInPrice())).toString();
+                String price = Double.valueOf(df2.format(mDataset.get(position).getPurchasePrice())).toString();
+                String volume = Double.valueOf(df2.format(mDataset.get(position).getVolume())).toString();
+                String proportion = Double.valueOf(df2.format(mDataset.get(position).getTotalInvestment() / totalInvestment() * 100)).toString() + "%";
+                String stringReturn = Double.valueOf(df2.format(mDataset.get(position).getPercentChange())).toString() + "%";
+
+
+                intent.putExtra("symbol", mDataset.get(position).getSymbol());
+                intent.putExtra("change", change);
+                intent.putExtra("purchasePrice", price);
+                intent.putExtra("volume", volume);
+                intent.putExtra("isChangePositive", isChangePositive);
+                intent.putExtra("proportion", proportion);
+                intent.putExtra("return", stringReturn);
+                //Start the individual activity
+                context.startActivity(intent);
+
             }
         });
 
@@ -92,4 +118,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         }
     }
+
+    private double totalInvestment() {
+        double totalInvestment = 0;
+        for (int i = 0; i < mDataset.size(); i++) {
+            totalInvestment += mDataset.get(i).getTotalInvestment();
+        }
+        return totalInvestment;
+    }
+
 }

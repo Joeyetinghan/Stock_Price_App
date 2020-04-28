@@ -29,12 +29,13 @@
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:fontFamily="casual" />
+                app:fontFamily="casual"
+                android:layout_marginBottom="15dp"/>
 
             <Button
                 android:id="@+id/totalReturn"
-                android:layout_width="128dp"
-                android:layout_height="wrap_content"
+                android:layout_width="64dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/btn_shape_round"
@@ -43,15 +44,31 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <ImageButton
-                android:id="@+id/add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="29dp"
-                android:layout_marginRight="29dp"
+            <Button
+                android:id="@+id/save"
+                android:layout_width="64dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_toStartOf="@+id/totalReturn"
                 android:layout_toLeftOf="@+id/totalReturn"
+                android:background="@drawable/btn_shape_round"
+                android:text="save"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:id="@+id/add"
+                android:layout_width="64dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_toStartOf="@+id/save"
+                android:layout_toLeftOf="@+id/save"
+                android:foregroundGravity="center_vertical"
                 app:srcCompat="@android:drawable/ic_menu_add" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,7 +100,7 @@
 
                         android:layout_marginStart="24dp"
                         android:layout_marginLeft="24dp"
-                        android:text="Total Inv."
+                        android:text="Inv."
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold"

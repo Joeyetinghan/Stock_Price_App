@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -64,6 +65,7 @@ public class Searcher extends AppCompatActivity {
             }
         });
 
+        LinearLayout add = findViewById(R.id.add);
     }
     // reference this youtube video: https://www.youtube.com/watch?v=y2xtLqP8dSQ
     private void jsonParse(String symbol, double priceInput, int volume) {
