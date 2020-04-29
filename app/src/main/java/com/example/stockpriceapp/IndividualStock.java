@@ -21,7 +21,6 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.google.gson.JsonIOException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -244,7 +243,7 @@ public class IndividualStock extends AppCompatActivity {
                             }
                         }
                     } else if (date.equals("5d")) {
-                        for (int i = 0; i < response.length(); i += 10) {
+                        for (int i = 0; i < response.length(); i++) {
                             unit = response.getJSONObject(i);
                             if (unit.has("close") && !unit.isNull("close")) {
                                 price = Float.valueOf(unit.getString("close"));
@@ -252,7 +251,7 @@ public class IndividualStock extends AppCompatActivity {
                             }
                         }
                     } else if (date.equals("1m")) {
-                        for (int i = 0; i < response.length(); i += 10) {
+                        for (int i = 0; i < response.length(); i++) {
                             unit = response.getJSONObject(i);
                             if (unit.has("close") && !unit.isNull("close")) {
                                 price = Float.valueOf(unit.getString("close"));
@@ -260,7 +259,7 @@ public class IndividualStock extends AppCompatActivity {
                             }
                         }
                     } else if (date.equals("3m")) {
-                        for (int i = 0; i < response.length(); i += 10) {
+                        for (int i = 0; i < response.length(); i += 3) {
                             unit = response.getJSONObject(i);
                             if (unit.has("close") && !unit.isNull("close")) {
                                 price = Float.valueOf(unit.getString("close"));
@@ -268,7 +267,7 @@ public class IndividualStock extends AppCompatActivity {
                             }
                         }
                     } else if (date.equals("6m")) {
-                        for (int i = 0; i < response.length(); i += 10) {
+                        for (int i = 0; i < response.length(); i += 7) {
                             unit = response.getJSONObject(i);
                             if (unit.has("close") && !unit.isNull("close")) {
                                 price = Float.valueOf(unit.getString("close"));
@@ -276,7 +275,7 @@ public class IndividualStock extends AppCompatActivity {
                             }
                         }
                     } else if (date.equals("1y")) {
-                        for (int i = 0; i < response.length(); i += 10) {
+                        for (int i = 0; i < response.length(); i += 30) {
                             unit = response.getJSONObject(i);
                             if (unit.has("close") && !unit.isNull("close")) {
                                 price = Float.valueOf(unit.getString("close"));
@@ -284,7 +283,7 @@ public class IndividualStock extends AppCompatActivity {
                             }
                         }
                     } else if (date.equals("5y")) {
-                        for (int i = 0; i < response.length(); i += 10) {
+                        for (int i = 0; i < response.length(); i += 100) {
                             unit = response.getJSONObject(i);
                             if (unit.has("close") && !unit.isNull("close")) {
                                 price = Float.valueOf(unit.getString("close"));
@@ -303,6 +302,10 @@ public class IndividualStock extends AppCompatActivity {
                     LineData data = new LineData(dataSets);
 
                     mChart.setData(data);
+
+                    mChart.animateX(1500);
+
+                    mChart.invalidate();
 
 
                 } catch (JSONException e) {
