@@ -8,7 +8,12 @@ package com.example.stockpriceapp;
         import android.content.DialogInterface;
         import android.content.Intent;
         import android.content.SharedPreferences;
+        import android.graphics.Color;
+        import android.graphics.LinearGradient;
+        import android.graphics.Shader;
         import android.os.Bundle;
+        import android.text.TextPaint;
+        import android.widget.TextView;
         import android.widget.Toast;
 
 
@@ -69,6 +74,20 @@ public class MainActivity extends AppCompatActivity {
             saveData();
             Toast.makeText(this, "Well saved!", Toast.LENGTH_SHORT).show();
         });
+
+        TextView portfolio = findViewById(R.id.myPortfolio);
+        TextPaint paint = portfolio.getPaint();
+        float width = paint.measureText("Tianjin, China");
+
+        Shader textShader = new LinearGradient(0, 0, width, portfolio.getTextSize(),
+                new int[]{
+                        Color.parseColor("#FFFFFF"),
+                        Color.parseColor("#FFFFFF"),
+                        Color.parseColor("#FDFAFA"),
+                        Color.parseColor("#B7B5B5"),
+                        Color.parseColor("#797777"),
+                }, null, Shader.TileMode.CLAMP);
+        portfolio.getPaint().setShader(textShader);
 
     }
     @Override

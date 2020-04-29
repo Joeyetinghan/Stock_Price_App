@@ -2,9 +2,11 @@ package com.example.stockpriceapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.changePercent.setText(String.valueOf(mDataset.get(position).getPercentChange()));
         String totalInvestment = Double.valueOf(df2.format(mDataset.get(position).getTotalInvestment())).toString();
         holder.total.setText(totalInvestment);
+
+        //change background
+        if (mDataset.get(position).getChangeInPrice() < 0) {
+            holder.itemView.setBackgroundColor(Color.rgb(153, 0, 0));
+        } else {
+            holder.itemView.setBackgroundColor(Color.rgb(0, 153, 76));
+        }
 
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +115,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView change;
         TextView changePercent;
         TextView total;
+        LinearLayout row;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -115,6 +125,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.change = (TextView) itemView.findViewById(R.id.change);
             this.changePercent = (TextView) itemView.findViewById(R.id.changePercent);
             this.total = (TextView) itemView.findViewById(R.id.total);
+            this.row = itemView.findViewById(R.id.my_row);
 
         }
     }

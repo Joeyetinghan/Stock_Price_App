@@ -4,172 +4,162 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Portfolio"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp">
+
 
             <TextView
                 android:id="@+id/myPortfolio"
-                android:layout_width="154dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft='true'
-                android:text="@string/myPortfolio"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:fontFamily="casual"
-                android:layout_marginBottom="15dp"/>
+                android:layout_gravity="center"
+                android:text="My Portfolio"
+                android:textColor="@color/white"
+                android:textSize="40sp">
 
-            <Button
-                android:id="@+id/totalReturn"
-                android:layout_width="64dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/btn_shape_round"
-                android:text="@string/getReturn"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
 
-            <Button
-                android:id="@+id/save"
-                android:layout_width="64dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_toStartOf="@+id/totalReturn"
-                android:layout_toLeftOf="@+id/totalReturn"
-                android:background="@drawable/btn_shape_round"
-                android:text="save"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
+            </TextView>
 
             <ImageButton
                 android:id="@+id/add"
                 android:layout_width="64dp"
                 android:layout_height="50dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginRight="13dp"
-                android:layout_toStartOf="@+id/save"
-                android:layout_toLeftOf="@+id/save"
                 android:foregroundGravity="center_vertical"
+                android:layout_gravity="center"
+                android:background="@color/black"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_without_corner"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/symbol"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/myPortfolio">
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Symbol"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/current_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Current Price"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
-                    <TextView
-                        android:id="@+id/percentchange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/change_in_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Change"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
-                        android:layout_marginStart="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:text="Chg%"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/change_in_price"
-                        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/percentchange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Chg%"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
-                    <TextView
-                        android:id="@+id/currency"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Inv."
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
 
-                        android:layout_marginStart="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:text="Inv."
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/percentchange"
-                        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="400dp"
+             android:background="@drawable/border_without_corner2"
+            android:layout_gravity="center"
+            android:gravity="center">
 
-                    <TextView
-                        android:id="@+id/change_in_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="370dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:scrollbarFadeDuration="0"
+                android:scrollbarSize="5dp"
+                android:scrollbarThumbVertical="@android:color/darker_gray"
+                android:scrollbars="vertical" />
 
-                        android:layout_marginStart="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:text="Change"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/current_price"
-                        app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/symbol"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="Symbol"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
 
-                    <TextView
-                        android:id="@+id/current_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+            <Button
+                android:id="@+id/totalReturn"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_shape_round"
+                android:text="@string/getReturn"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-                        android:layout_marginStart="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:text="Current Price"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/symbol"
-                        app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/save"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end|center_vertical"
+                android:background="@drawable/btn_shape_round"
+                android:text="save"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
+        </LinearLayout>
 
-        </RelativeLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:scrollbarFadeDuration="0"
-            android:scrollbarSize="5dp"
-            android:scrollbarThumbVertical="@android:color/darker_gray"
-            android:scrollbars="vertical" />
 
 
     </LinearLayout>
