@@ -137,5 +137,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
         return totalInvestment;
     }
-
 }

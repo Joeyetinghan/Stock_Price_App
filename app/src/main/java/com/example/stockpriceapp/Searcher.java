@@ -39,7 +39,10 @@ public class Searcher extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searcher);
 
+        //important!!
         mQueue = Volley.newRequestQueue(this);
+
+
         input = findViewById(R.id.stockInput);
         price = findViewById(R.id.priceInput);
         volume = findViewById(R.id.volumeInput);

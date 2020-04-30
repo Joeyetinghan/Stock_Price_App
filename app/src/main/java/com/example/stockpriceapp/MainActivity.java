@@ -1,32 +1,32 @@
 package com.example.stockpriceapp;
 
-        import androidx.appcompat.app.AlertDialog;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.recyclerview.widget.LinearLayoutManager;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.content.SharedPreferences;
-        import android.graphics.Color;
-        import android.graphics.LinearGradient;
-        import android.graphics.Shader;
-        import android.os.Bundle;
-        import android.text.TextPaint;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
+import android.os.Bundle;
+import android.text.TextPaint;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
-        import com.google.gson.ExclusionStrategy;
-        import com.google.gson.FieldAttributes;
-        import com.google.gson.Gson;
-        import com.google.gson.GsonBuilder;
-        import com.google.gson.reflect.TypeToken;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
-        import java.lang.reflect.Type;
-        import java.text.DecimalFormat;
-        import java.text.SimpleDateFormat;
-        import java.util.ArrayList;
+import java.lang.reflect.Type;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         saveData();
-                        dialog.cancel();
+                        MainActivity.super.onBackPressed();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

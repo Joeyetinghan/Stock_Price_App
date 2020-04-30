@@ -10,15 +10,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp">
 
 
             <TextView
@@ -37,18 +38,18 @@
                 android:id="@+id/add"
                 android:layout_width="64dp"
                 android:layout_height="50dp"
-                android:foregroundGravity="center_vertical"
                 android:layout_gravity="center"
                 android:background="@color/black"
+                android:foregroundGravity="center_vertical"
                 app:srcCompat="@android:drawable/ic_menu_add" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="370dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_without_corner"
+            android:layout_height="40dp"
             android:layout_gravity="center"
+            android:background="@drawable/border_without_corner2"
             android:gravity="center">
 
             <TextView
@@ -56,7 +57,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.7"
                 android:text="Symbol"
                 android:textColor="@color/white"
                 android:textSize="15sp"
@@ -66,52 +68,53 @@
                 android:id="@+id/current_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Current Price"
+                android:text="Price"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/change_in_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="Change"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/percentchange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="Chg%"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/currency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:text="Inv."
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="370dp"
             android:layout_height="400dp"
-             android:background="@drawable/border_without_corner2"
             android:layout_gravity="center"
+            android:background="@drawable/border_without_corner2"
             android:gravity="center">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -130,10 +133,10 @@
         <LinearLayout
             android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:gravity="end"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/totalReturn"
@@ -159,7 +162,6 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>

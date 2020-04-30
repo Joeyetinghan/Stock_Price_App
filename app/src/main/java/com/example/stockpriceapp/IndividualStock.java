@@ -178,7 +178,7 @@ public class IndividualStock extends AppCompatActivity {
     // reference this youtube video: https://www.youtube.com/watch?v=y2xtLqP8dSQ
     private void jsonParse(String symbol) {
         String lowerCaseSymbol = symbol.toLowerCase();
-        String url = "https://cloud.iexapis.com/stable/stock/" + lowerCaseSymbol + "/quote/?token=pk_08fb66c38ef941ac98cbeb5cf45cf0a2";
+        String url = "https://cloud.iexapis.com/stable/stock/" + lowerCaseSymbol + "/quote/?token=sk_7cc85afbacd6429db92aa9c26760cca4";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -186,13 +186,37 @@ public class IndividualStock extends AppCompatActivity {
                         // add the symbol to the url and search if the symbol is valid
                         // if valid, add it and return to main activity
                         try {
-                            date.setText(response.getString("latestTime"));
-                            name.setText(response.getString("companyName"));
-                            price.setText(response.getString("latestPrice"));
-                            mrkCap.setText(response.getString("marketCap"));
+                            if (response.has("latestTime") && !response.isNull("latestTime")) {
+                                date.setText(response.getString("latestTime"));
+                            } else {
+                                date.setText("N/A");
+                            }
+                            if (response.has("companyName") && !response.isNull("companyName")) {
+                                name.setText(response.getString("companyName"));
+                            } else {
+                                name.setText("N/A");
+                            }
+                            if (response.has("latestPrice") && !response.isNull("latestPrice")) {
+                                price.setText(response.getString("latestPrice"));
+                            } else {
+                                price.setText("N/A");
+                            }
+                            if (response.has("marketCap") && !response.isNull("marketCap")) {
+                                mrkCap.setText(response.getString("marketCap"));
+                            } else {
+                                mrkCap.setText("N/A");
+                            }
                             //beta.setText(json.getString("companyName"));
-                            pe.setText(response.getString("peRatio"));
-                            volume.setText(response.getString("avgTotalVolume"));
+                            if (response.has("peRatio") && !response.isNull("peRatio")) {
+                                pe.setText(response.getString("peRatio"));
+                            } else {
+                                pe.setText("N/A");
+                            }
+                            if (response.has("avgTotalVolume") && !response.isNull("avgTotalVolume")) {
+                                volume.setText(response.getString("avgTotalVolume"));
+                            } else {
+                                volume.setText("N/A");
+                            }
                             purchasePrice.setText(getIntent().getStringExtra("purchasePrice"));
                             myVolume.setText(getIntent().getStringExtra("volume"));
                             proportion.setText(getIntent().getStringExtra("proportion"));

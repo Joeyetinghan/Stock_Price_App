@@ -2,6 +2,7 @@ package com.example.stockpriceapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,14 +20,14 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable(){
             @Override
-            public void onClick(View v) {
+            public void run(){
                 startActivity(new Intent(LaunchActivity.this, MainActivity.class));
                 finish();
             }
-        });
-
+        }, 2000);
     }
 }
 

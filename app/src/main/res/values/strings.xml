@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Stock Price</string>
+    <string name="app_name">Portfolio</string>
     <string name="image">Image</string>
     <string name="welcome">Portfolio Simulator</string>
     <string name="start">Start</string>
