@@ -74,7 +74,7 @@ public class Searcher extends AppCompatActivity {
     private void jsonParse(String symbol, double priceInput, int volume) {
         Intent returnIntent = new Intent();
         String lowerCaseSymbol = symbol.toLowerCase();
-        String url = "https://cloud.iexapis.com/stable/stock/" + lowerCaseSymbol + "/quote/?token=pk_08fb66c38ef941ac98cbeb5cf45cf0a2";
+        String url = "https://cloud.iexapis.com/stable/stock/" + lowerCaseSymbol + "/quote/?token=sk_7cc85afbacd6429db92aa9c26760cca4";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
