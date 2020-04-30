@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < mDataset.size(); i++) {
             update(mDataset.get(i).getSymbol(), mDataset.get(i).getPurchasePrice(), i);
         }
+        saveData();
 
         findViewById(R.id.add).setOnClickListener(v -> {
             //Go to searcher class and run onActivity result
